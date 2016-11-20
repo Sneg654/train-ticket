@@ -36,6 +36,11 @@
         <version>2.6</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
+          <webResources>
+            <resource>
+              <directory>resource</directory>
+            </resource>
+          </webResources>
         </configuration>
       </plugin>
       <plugin>
