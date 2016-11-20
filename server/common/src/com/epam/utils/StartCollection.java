@@ -17,7 +17,7 @@ public class StartCollection {
     static {
         getCollection(tickets);
     }
-    public static final Map<Integer, Ticket>getCollection(Map<Integer, Ticket>tickets){
+    public static final  void  getCollection(Map<Integer, Ticket>tickets){
         Ticket ticket1 =new Ticket();
         ticket1.setStartCity("Almaty");
         ticket1.setFinishCity("Astana");
@@ -63,7 +63,7 @@ public class StartCollection {
         human3.setBirthday(new Date(29,6,16));
         ticket3.setHuman(human3);
         tickets.put(ticket3.getNumberTicket(),ticket3);
-        return tickets;
+
     }
 
     public static Map<Integer, Ticket> getTickets() {

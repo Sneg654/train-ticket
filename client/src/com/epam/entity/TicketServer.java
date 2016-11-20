@@ -34,7 +34,8 @@ public interface TicketServer {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "findTicket", targetNamespace = "http://servise.soap.epam.com/", className = "com.epam.entity.FindTicket")
     @ResponseWrapper(localName = "findTicketResponse", targetNamespace = "http://servise.soap.epam.com/", className = "com.epam.entity.FindTicketResponse")
-    public com.epam.entity.FindTicketResponse.Return findTicket(
+
+    com.epam.entity.FindTicketResponse.Return findTicket(
         @WebParam(name = "numberTicket", targetNamespace = "")
         Integer numberTicket);
 
@@ -49,7 +50,8 @@ public interface TicketServer {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "payTicket", targetNamespace = "http://servise.soap.epam.com/", className = "com.epam.entity.PayTicket")
     @ResponseWrapper(localName = "payTicketResponse", targetNamespace = "http://servise.soap.epam.com/", className = "com.epam.entity.PayTicketResponse")
-    public String payTicket(
+
+    String payTicket(
         @WebParam(name = "numberTicket", targetNamespace = "")
         Integer numberTicket,
         @WebParam(name = "money", targetNamespace = "")
@@ -69,7 +71,8 @@ public interface TicketServer {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "bookedTicket", targetNamespace = "http://servise.soap.epam.com/", className = "com.epam.entity.BookedTicket")
     @ResponseWrapper(localName = "bookedTicketResponse", targetNamespace = "http://servise.soap.epam.com/", className = "com.epam.entity.BookedTicketResponse")
-    public Integer bookedTicket(
+
+    Integer bookedTicket(
         @WebParam(name = "startCity", targetNamespace = "")
         String startCity,
         @WebParam(name = "endCity", targetNamespace = "")
@@ -91,7 +94,8 @@ public interface TicketServer {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "removeTicket", targetNamespace = "http://servise.soap.epam.com/", className = "com.epam.entity.RemoveTicket")
     @ResponseWrapper(localName = "removeTicketResponse", targetNamespace = "http://servise.soap.epam.com/", className = "com.epam.entity.RemoveTicketResponse")
-    public String removeTicket(
+
+    String removeTicket(
         @WebParam(name = "numberTicket", targetNamespace = "")
         Integer numberTicket);
 

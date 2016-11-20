@@ -12,8 +12,8 @@ import java.util.Scanner;
  * Created by Sergey_Stefoglo on 10/31/2016.
  */
 public class WSClient {
-    static TrainTicketJaxWsServersImplService trainTicketJaxWsServersImplService = new TrainTicketJaxWsServersImplService();
-    static TicketServer proxy = trainTicketJaxWsServersImplService.getTicketServerPort();
+    private static TrainTicketJaxWsServersImplService trainTicketJaxWsServersImplService = new TrainTicketJaxWsServersImplService();
+    private static TicketServer proxy = trainTicketJaxWsServersImplService.getTicketServerPort();
 
     public static void main(String[] args) {
         try {
@@ -24,7 +24,10 @@ public class WSClient {
                     String[] arguments = sc.nextLine().replaceAll(Utils.SPACE, Utils.REPLACE).split(Utils.DEL);
                     if (arguments[Utils.TYPE_COMMAND].equalsIgnoreCase(Utils.GET_TICKET)) {
                         FindTicketResponse.Return ticket = proxy.findTicket(Integer.valueOf(arguments[Utils.TICKET_ID_PARAM]));
-                        System.out.println(ticket);
+                        if(ticket!=null){System.out.println(ticket);}
+                        else {
+                            System.out.println(Utils.TICKET_NOT_FOUND);
+                        }
                     } else if (arguments[Utils.TYPE_COMMAND].equalsIgnoreCase(Utils.REMOVE_TICKET)) {
                         String message = proxy.removeTicket(Integer.valueOf(arguments[Utils.TICKET_ID_PARAM]));
                         System.out.println(message);
@@ -37,7 +40,7 @@ public class WSClient {
                                 Utils.getDate(arguments[Utils.START_DATE]),
                                 Utils.getDate(arguments[Utils.END_DATE]),
 
-                   Utils.getHuman(arguments[Utils.FIRST_NAME_PARAM],
+                                Utils.getHuman(arguments[Utils.FIRST_NAME_PARAM],
                                         arguments[Utils.LAST_NAME_PARAM],
                                         arguments[Utils.MIDDLE_NAME_PARAM],
                                         Utils.getDate(arguments[Utils.BIRTHDAY_PARAM]))

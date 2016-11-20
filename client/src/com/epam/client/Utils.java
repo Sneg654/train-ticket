@@ -17,7 +17,7 @@ import java.util.TimeZone;
  */
 public class Utils {
 
-    private static DateFormat format = new SimpleDateFormat("dd.M.yyyy");
+    private static  DateFormat format = new SimpleDateFormat("dd.M.yyyy");
     public final static String GET_TICKET = "gt";
     public final static String REMOVE_TICKET = "rt";
     public final static String PAYED_TICKET = "pt";
@@ -34,7 +34,7 @@ public class Utils {
             "rt,100- for delete  ticket with number 100\n" +
             "pt,100,5000- for payment  ticket with number 100, sum 5000\n" +
             "bt,FirstName,LastName,MiddleName,BirthDay(format:DD.MM.YYYY),ArrivaCity,DepartureCity,AriveDate(format:DD.MM.YYYY),DepartureDate(format:DD.MM.YYYY)\n";
-
+    public static final String TICKET_NOT_FOUND = "ticket not found";
     public static final int TYPE_COMMAND = 0;
     public static final int TICKET_ID_PARAM = 1;
     public static final int MONEY_PARAM = 2;

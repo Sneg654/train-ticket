@@ -1,4 +1,5 @@
-package com.epam.client; /**
+package com.epam.client;
+/**
  * Created by Sergey_Stefoglo on 10/30/2016.
  */
 
@@ -24,13 +25,8 @@ public class RsClient {
     public static final String CHOISE_SERVERSE = "Please choise type of web serverse(Example 1: JSON, Example 2: XML)";
     public static final String JSON = "JSON";
     public static final String XML = "XML";
-    public static final String CHOISE_COMMAND = "enter command , for use serverse Exampes:\n" +
-            "gt,100- for show informaion about ticket with number 100\n" +
-            "rt,100- for delete  ticket with number 100\n" +
-            "pt,100,5000- for payment  ticket with number 100, sum 5000\n" +
-            "bt,FirstName,LastName,MiddleName,BirthDay(format:DD.MM.YYYY),ArrivaCity,DepartureCity,AriveDate(format:DD.MM.YYYY),DepartureDate(format:DD.MM.YYYY)\n";
-    public static final String CHANGE_TYPE = "for change type date enter change";
-    private static final String TICKET_NOT_FOUND = "ticket not found";
+     public static final String CHANGE_TYPE = "for change type date enter change";
+
     private static String serveseURL;
     private static String typeAnswer;
     private static WebResource webResource;
@@ -56,7 +52,7 @@ public class RsClient {
                     System.out.println(Utils.INCORRECT_PARAM);
                     continue;
                 }
-                System.out.println(CHOISE_COMMAND);
+                System.out.println(Utils.CHOISE_COMMAND);
                 while (sc.hasNextLine()) {
                     try {
                         String[] arguments = sc.nextLine().replaceAll(Utils.SPACE, Utils.REPLACE).split(Utils.DEL);
@@ -68,7 +64,7 @@ public class RsClient {
                             System.out.println(ticket);
                             System.out.println(CHANGE_TYPE);
                         }catch(UniformInterfaceException e){
-                               System.out.println(TICKET_NOT_FOUND);
+                               System.out.println(Utils.TICKET_NOT_FOUND);
                                System.out.println(CHANGE_TYPE); }
                         } else if (arguments[Utils.TYPE_COMMAND].equalsIgnoreCase(Utils.REMOVE_TICKET)) {
                             webResource = client.resource((serveseURL + DELETE + arguments[Utils.TICKET_ID_PARAM]));
