@@ -13,7 +13,7 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 public class RsClient {
-    private static final String baseURL = "http://localhost:45054/rest/api/";
+    private static final String baseURL = "http://epkzkarw0338.moscow.epam.com:45054/rest/api/";
     private static final String JSON_SERVER = "TicketJSONService";
     private static final String XML_SERVER = "TicketXMLService";
     private static final String GET = "/getTicket/";
